@@ -11,8 +11,8 @@ class Proyecto {
     return this.tareas.reduce((acum, tarea) => acum + tarea.getDuracion(), 0);
   }
 
-  mostrarTareas() {
-    this.tareas.forEach((tarea) => tarea.mostrarTarea());
+  mostrarTareas(valor) {
+    this.tareas.forEach((tarea) => tarea.mostrarTarea(valor));
   }
 
   cleanTareas() {
