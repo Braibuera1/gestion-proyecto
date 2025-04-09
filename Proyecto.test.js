@@ -47,11 +47,11 @@ describe("Duracion Proyecto", () => {
 
   test("La tarea tarea 2 es de complejidad máxima y su costo debería ser 1401,25", () => {
     expect(t2.complejidad.Nombre).toBe("Maxima");
-    expect(t2.costo(25)).toBe(1401.25);
+    expect(t2.costo()).toBe(1401.25);
   });
 
   test("La tarea tarea 2.2 es de complejidad máxima y su costo debería ser 222.56", () => {
     expect(t2.tareas[1].complejidad.Nombre).toBe("Maxima");
-    expect(t2.tareas[1].costo(25)).toBe(222.56);
+    expect(t2.tareas[1].costo()).toBe(222.56);
   });
 });

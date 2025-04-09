@@ -20,5 +20,5 @@ proyecto.agregarTarea(t2);
 proyecto.agregarTarea(t3);
 proyecto.agregarTarea(t4);
 
-proyecto.mostrarTareas(25);
+proyecto.mostrarTareas();
 console.log(`Duracion Total: ${proyecto.getDuracion()}`);

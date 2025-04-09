@@ -16,15 +16,15 @@ class Tarea {
    /*
   Se agrega el tipo de complejidad y el costo en el metodo mostrarTarea
   */ 
-  mostrarTarea(n) {
-    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Complejidad: ${this.complejidad.Nombre} - Costo: ${this.costo(n)}`);
+  mostrarTarea() {
+    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Complejidad: ${this.complejidad.Nombre} - Costo: ${this.costo()}`);
   }
 
   /*
   Se agrega el metodo costo() 
   */ 
-  costo(valor){
-    return this.complejidad.calcularCosto(this.duracion,valor);
+  costo(){
+    return this.complejidad.calcularCosto(this.duracion);
   }
 }
 
@@ -49,16 +49,16 @@ class TareaCompuesta {
   /*
   Se agrega el tipo de complejidad y el costo en el metodo mostrarTarea
   */ 
-  mostrarTarea(n) {
-    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Complejidad: ${this.complejidad.Nombre} - Costo: ${this.costo(n)}`);
-    this.tareas.forEach((tarea) => tarea.mostrarTarea(n));
+  mostrarTarea() {
+    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Complejidad: ${this.complejidad.Nombre} - Costo: ${this.costo()}`);
+    this.tareas.forEach((tarea) => tarea.mostrarTarea());
   }
 
   /*
   Se agrega el metodo costo() 
   */ 
-  costo(valor){
-    const costo = this.complejidad.calcularCosto(this.duracion,valor);
+  costo(){
+    const costo = this.complejidad.calcularCosto(this.duracion);
     return this.tareas.length <= 3 ? costo : costo * 1.04; // Si la cantidad de subtareas directas es mayor a 3 entonces se agrega un 4% extra 
   }
 }

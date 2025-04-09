@@ -6,41 +6,40 @@ Las clases ComplejidadIntermedia y ComplejidadMaxima tendran el atributo "extra"
 
 */
 
+class Complejidad {
+    valor = 25
+}
 
-class ComplejidadSimple{
+class ComplejidadSimple extends Complejidad{
+    nombre = "Simple"
 
-    constructor(){
-        this.nombre = "Simple";
-    }
     get Nombre(){
         return this.nombre;
     }
 
-    calcularCosto(duracion, valor){ // "calcularCosto" le ingresan dos parametros: duracion y valor
-        return duracion * valor;   // Devuelve la multiplicación de ambos valores, entrega el costo en una tarea de complejidad simple 
+    calcularCosto(duracion){ // "calcularCosto" le ingresan dos parametros: duracion y valor
+        return duracion * this.valor;   // Devuelve la multiplicación de ambos valores, entrega el costo en una tarea de complejidad simple 
     }
 }
 
-class ComplejidadIntermedia{
-    constructor(){
-        this.nombre = "Intermedia";
-        this.extra = 1.05;
-    }
+class ComplejidadIntermedia extends Complejidad{
+
+    nombre = "Intermedia";
+    extra = 1.05;
     
     get Nombre(){
         return this.nombre;
     }
-
-    calcularCosto(duracion, valor){
-        return duracion * valor * this.extra; // Devuelve la multiplicación de ambos valores con el extra agregado 
+    
+    calcularCosto(duracion){
+        return duracion * this.valor * this.extra; // Devuelve la multiplicación de ambos valores con el extra agregado 
     }
 }
 
-class ComplejidadMaxima{
-    constructor(){
-        this.nombre = "Maxima";
-        this.extra = 1.07;
-    }
+class ComplejidadMaxima extends Complejidad{
+
+    nombre = "Maxima"
+    extra = 1.07
 
     get Nombre(){
         return this.nombre;
@@ -49,8 +48,8 @@ class ComplejidadMaxima{
     /*
     El metodo calcularCosto de la clase ComplejidadMaxima 
     */
-    calcularCosto(duracion, valor){
-        const costo = duracion * valor * this.extra; //Guarda en una constante el costo + el extra
+    calcularCosto(duracion){
+        const costo = duracion * this.valor * this.extra; //Guarda en una constante el costo + el extra
         return duracion <= 10 ? costo : costo + Math.floor(duracion/10) * 1000; // Si la duracion es menor o igual a 10 devuelve el costo calculado, sino se agrega 1000 * la cantidad de veces que el tiempo exceda 10 unidades
     }
 }
