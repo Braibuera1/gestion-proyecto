@@ -1,10 +1,23 @@
+/*
+Definimos las clases ComplejidadSimple, ComplejidadIntermedia y ComplejidadMaxima
+
+Cada cada clase tendra como atributo un "nombre". 
+Las clases ComplejidadIntermedia y ComplejidadMaxima tendran el atributo "extra", con el porcentaje a aumentar.  
+
+*/
+
 
 class ComplejidadSimple{
+
     constructor(){
         this.nombre = "Simple";
     }
-    calcularCosto(tiempo, valor){
-        return tiempo * valor;
+    get Nombre(){
+        return this.nombre;
+    }
+
+    calcularCosto(duracion, valor){ // "calcularCosto" le ingresan dos parametros: duracion y valor
+        return duracion * valor;   // Devuelve la multiplicación de ambos valores, entrega el costo en una tarea de complejidad simple 
     }
 }
 
@@ -13,8 +26,13 @@ class ComplejidadIntermedia{
         this.nombre = "Intermedia";
         this.extra = 1.05;
     }
-    calcularCosto(tiempo, valor){
-        return tiempo * valor * this.extra;
+    
+    get Nombre(){
+        return this.nombre;
+    }
+
+    calcularCosto(duracion, valor){
+        return duracion * valor * this.extra; // Devuelve la multiplicación de ambos valores con el extra agregado 
     }
 }
 
@@ -23,9 +41,17 @@ class ComplejidadMaxima{
         this.nombre = "Maxima";
         this.extra = 1.07;
     }
-    calcularCosto(tiempo, valor){
-        const costo = tiempo * valor * this.extra;
-        return tiempo <= 10 ? costo : costo + Math.floor(tiempo/10) * 1000;
+
+    get Nombre(){
+        return this.nombre;
+    }
+
+    /*
+    El metodo calcularCosto de la clase ComplejidadMaxima 
+    */
+    calcularCosto(duracion, valor){
+        const costo = duracion * valor * this.extra; //Guarda en una constante el costo + el extra
+        return duracion <= 10 ? costo : costo + Math.floor(duracion/10) * 1000; // Si la duracion es menor o igual a 10 devuelve el costo calculado, sino se agrega 1000 * la cantidad de veces que el tiempo exceda 10 unidades
     }
 }
 
